@@ -35,7 +35,7 @@ async function getLatLong(cityName) {
     };
 }
 
-app.get('/location', (req, res) => {
+app.get('/location', async(req, res) => {
     try {
         const userInput = req.query.search;
         const mungedData = await getLatLong(userInput);
@@ -60,11 +60,11 @@ app.get('/weather', (req, res) => {
     });
 
     app.get('/Movies', async(req, res) => {
-        try
+        try {
         const userInput = req.query.search;
         const mungedData = getLatLong(userInput);
         res.json(mungedData);
-        
+        } catch {}
         
         });
   
