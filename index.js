@@ -26,7 +26,7 @@ function getWeather(lat, lon) {
 }
 
 async function getLatLong(cityName) {
-    const response = await request.get(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=38.123&lon=-78.543&key=${GEOCODE_API_KEY}&q=${cityName}&format=json`)
+    const response = await request.get(`https://us1.locationiq.com/v1/search.php?key=${GEOCODE_API_KEY}&q=${cityName}&format=json`)
     const city = response.body[0];
     return {
         formatted_query: city.display_name,
